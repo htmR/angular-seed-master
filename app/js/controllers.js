@@ -11,11 +11,11 @@ angular.module('myApp.controllers', []).
 */
 
 // Chapter 0
-/*angular.module('myApp.controllers', []).controller('FinanceController', function($scope){
-	$scope.salary = 0;
-	$scope.percentage = 0;
-	$scope.result = function(){
-		return $scope.salary * $scope.percentage * 0.01;
+/*angular.module('myApp.controllers', []).controller('FinanceController', function(this){
+	this.salary = 0;
+	this.percentage = 0;
+	this.result = function(){
+		return $f.salary * this.percentage * 0.01;
 	};
 });*/
 
@@ -35,6 +35,10 @@ angular.module('secondModule',['moduleA','moduleB']);
 })();*/
 
 angular.module('myApp',[]).controller('GreetingController', function($scope){
-	$scope.now = new Date();
-	$scope.gretting = 'Hello';
+	this.now = new Date();
+	this.helloMessages = ['Hello', 'Bonjour', 'Hola', 'Ciao', 'Hallo'];
+	this.greeting = this.helloMessages[1];
+	this.getRandomHelloMessage = function(){
+	this.greeting = this.helloMessages[parseInt((Math.random() * this.helloMessages.length))];
+};
 });
